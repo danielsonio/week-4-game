@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crystal Collector</title>
+    <style>
+      #title {
+        background: orange;
+        width: 300px;
+        margin: 10px 10px 20px 10px;
+      }
+      #random-num{
+        background-color: green;
+        width: 200px;
+        font-size: 45px;
+        margin: 10px;
+
+      }
+      #scoreboard{
+        background: blue;
+        width: 250px;
+        font-size: 30px;
+        margin: 10px;
+      }
+      #total-score {
+        background: yellow;
+        width: 300px;
+        font-size: 45px;
+        margin: 10px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1 id="title">Crystals Collector!</h1>
+    <div id="random-num">99</div>
+    <div id="scoreboard">
+      <div id="win-lose"></div>
+      <div> Wins:
+        <span id="win-count">0</span>
+      </div>
+      <div> Losses:
+        <span id="loss-count">0</span>
+      </div>
+    </div>
+    <div id="crystals">
+      <span id="blue-crystal"><img src="assets/images/blue_crystal.png" alt="blue crystal" style="width:100px;height:100px;"></span>
+      <span id="green-crystal"><img src="assets/images/green_crystal.png" alt="green crystal" style="width:100px;height:100px;"></span>
+      <span id="red-crystal"><img src="assets/images/red_crystal.png" alt="red crystal" style="width:100px;height:100px;"></span>
+      <span id="purple-crystal"><img src="assets/images/purple_crystal.png" alt="purple crystal" style="width:100px;height:100px;"></span>
+    </div>
+    <div id="total-score">Total score: <span id="round-points"></span></div>
+    <script src="assets/javascript/game.js"></script>
+  </body>
+</html>
