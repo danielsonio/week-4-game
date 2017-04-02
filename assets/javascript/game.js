@@ -49,6 +49,7 @@ function startGame() {
   scoreCounter = 0;
 
   //displays computer random number and scoreboard
+  $("#win-lose").html("CHOOSE WISELY");
   $("#random-num").html(compRandomNum);
   $("#win-count").html(winCounter);
   $("#loss-count").html(lossCounter);
@@ -84,13 +85,13 @@ function gameCheck() {
   $("#round-points").html(scoreCounter);
 
   if (scoreCounter === compRandomNum){
-    alert("You win!")
-    winCounter++
-    startGame();
+    $("#win-lose").html("You Win!");
+    winCounter++;
+    setTimeout(startGame, 2000);
   } else if(scoreCounter > compRandomNum) {
-    alert("You lose!")
-    lossCounter++
-    startGame();
+    $("#win-lose").html("You Lose!");
+    lossCounter++;
+    setTimeout(startGame, 2000);
   };
 
 }
