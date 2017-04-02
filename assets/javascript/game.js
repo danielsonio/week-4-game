@@ -27,8 +27,8 @@
 //
 // * Each crystal should have a random hidden value between 1 - 12.
 
-var winCounter;
-var lossCounter;
+var winCounter = 0;
+var lossCounter = 0;
 var scoreCounter = 0;
 
 var compRandomNum;
@@ -37,43 +37,67 @@ var greenNum;
 var purpleNum;
 var redNum;
 
+$(document).ready(function() {
 
 function startGame() {
-  compRandomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+  //sets all random numbers for the round
+  compRandomNum = Math.floor(Math.random() * (120 - 20)) + 19;
   blueNum = Math.floor(Math.random() * (12)) + 1;
   greenNum = Math.floor(Math.random() * (12)) + 1;
   purpleNum = Math.floor(Math.random() * (12)) + 1;
   redNum = Math.floor(Math.random() * (12)) + 1;
   scoreCounter = 0;
 
+  //displays computer random number and scoreboard
   $("#random-num").html(compRandomNum);
+  $("#win-count").html(winCounter);
+  $("#loss-count").html(lossCounter);
+  $("#round-points").html(scoreCounter);
 
-  console.log("Computer random: " + compRandomNum);
-    console.log("Purple num: " + purpleNum);
-    console.log("Green num: " + greenNum);
-
-
+  console.log("Computer random: " + compRandomNum + " | Blue num: " + blueNum + " | Green num: " + greenNum + " | Red num: " + redNum + " | Purple num: " + purpleNum);
 }
 
 function clickCrystals() {
+  //Click events for each crystal
   $("#blue-crystal").on("click", function() {
     scoreCounter += blueNum;
-    console.log("Score Counter: " + scoreCounter);
+    gameCheck();
   });
   $("#green-crystal").on("click", function() {
     scoreCounter += greenNum;
-    console.log("Score Counter: " + scoreCounter);
+    gameCheck();
   });
   $("#purple-crystal").on("click", function() {
     scoreCounter += purpleNum;
-    console.log("Score Counter: " + scoreCounter);
+    gameCheck();
   });
   $("#red-crystal").on("click", function() {
     scoreCounter += redNum;
-    console.log("Score Counter: " + scoreCounter);
+    gameCheck();
   });
+}
+
+
+
+function gameCheck() {
+  console.log("Score Counter: " + scoreCounter);
+  $("#round-points").html(scoreCounter);
+
+  if (scoreCounter === compRandomNum){
+    alert("You win!")
+    winCounter++
+    startGame();
+  } else if(scoreCounter > compRandomNum) {
+    alert("You lose!")
+    lossCounter++
+    startGame();
+  };
 
 }
 
+
+
 clickCrystals();
 startGame();
+
+});
